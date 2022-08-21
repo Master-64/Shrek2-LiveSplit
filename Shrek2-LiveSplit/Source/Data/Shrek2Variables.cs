@@ -18,7 +18,7 @@ namespace Shrek2_LiveSplit.Data
             "book_frontend",
             "book_story_1",
             // "book_story_2", // Master_64: Excluding this so that Carriage Hijack splits at the right time
-            "book_story_3",
+            // "book_story_3", // Master_64: Excluding this so that Hamlet End splits at the right time
             "book_story_4",
             "book_storybook",
             "credits",
@@ -28,7 +28,8 @@ namespace Shrek2_LiveSplit.Data
             "beanstalk_bonus_knight",
             "1_shreks_swamp",
             "4_fgm_pib",
-            "3_the_hunt_part1"
+            "3_the_hunt_part1",
+            "7_prison_donkey"
 
             // Master_64: These below are now excluded so that each map splits instead of each mission like it originally did
             // "3_the_hunt_part2",

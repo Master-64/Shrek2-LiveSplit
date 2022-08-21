@@ -1,4 +1,14 @@
 <updates>
+	<update version="1.0.4">
+        <files>
+            <file path="Components/Shrek2-LiveSplit.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>
+                Fixed an issue with the Hamlet End split and simplified the code for figuring out when the game ends
+            </change>
+        </changelog>
+    </update>
 	<update version="1.0.3">
         <files>
             <file path="Components/Shrek2-LiveSplit.dll" status="changed"/>
