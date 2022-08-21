@@ -78,8 +78,8 @@ namespace Shrek2_LiveSplit.Game
             {
                 if (string.IsNullOrWhiteSpace(cll)) return GameState.None;
 
-                if (cll.Contains("kwherocontroller ShowMenu")) return GameState.Pause;
-                if (cll.Contains("GUIController::CloseMenu")) return GameState.Resume;
+                // if (cll.Contains("kwherocontroller ShowMenu")) return GameState.Pause;
+                // if (cll.Contains("GUIController::CloseMenu")) return GameState.Resume;
                 if (cll.Contains("Resetting GLevel: Level")) return GameState.Pause;
                 if (cll.Contains("Level-loading information not found")) return GameState.Pause;
                 if (cll.Contains("Log: LoadMap:")) return GameState.Pause;
@@ -89,11 +89,14 @@ namespace Shrek2_LiveSplit.Game
                 if (cll.Contains("Allocating 16384 byte dynamic index buffer.")) return GameState.Resume;
                 if (cll.Contains("Allocating 27456 byte dynamic index buffer.")) return GameState.Resume;
                 if (cll.Contains("Allocating 65536 byte dynamic vertex buffer.")) return GameState.Resume;
-                if (cll.Contains("Log: Saving game...")) return GameState.Pause;
-                if (cll.Contains("Saving into slot")) return GameState.Pause;
-                if (cll.Contains("Log: Save=")) return GameState.Resume;
-                //if (cll.Contains("CutLog: [GAMEMENU.CutScene]:Triggered")) return GameState.Reset;
-                //if (cll.Contains("CutLog: [GAMEMENU.CutScene]:SceneStarted")) return GameState.Reset;
+
+                // Master_64: This is all inaccurate
+                // if (cll.Contains("Log: Saving game...")) return GameState.Pause;
+                // if (cll.Contains("Saving into slot")) return GameState.Pause;
+                // if (cll.Contains("Log: Save=")) return GameState.Resume;
+                // if (cll.Contains("CutLog: [GAMEMENU.CutScene]:Triggered")) return GameState.Reset;
+                // if (cll.Contains("CutLog: [GAMEMENU.CutScene]:SceneStarted")) return GameState.Reset;
+
                 if (cll.Contains("CutLog: [FINALBATTLE_YOUWIN.CutScene]:Triggered")) return GameState.Split;
                 if (cll.Contains("CutLog: [FINALBATTLE_YOUWIN.CutScene]:SceneStarted")) return GameState.Split;
 
