@@ -61,7 +61,7 @@ namespace Shrek2_LiveSplit.Game
                     if (formattedMap == "book_story_1") return GameState.NewGame;
 
                     if (Shrek2Variables.ExcludedSplitMaps.Any(p => p == formattedMap)) return GameState.None;
-                    return GameState.Split;
+                    return GameState.Split; // Master_64: This still gets fired sometimes during level loads? Probably something to do with the map pointer.
                 }
 
                 return GameState.None;
@@ -78,27 +78,19 @@ namespace Shrek2_LiveSplit.Game
             {
                 if (string.IsNullOrWhiteSpace(cll)) return GameState.None;
 
+                // Master_64: Simplified these calls majorly to improve consistency with loadless
+                if (cll.Contains("Resetting GLevel:") || cll.Contains("LoadMap:") || cll.Contains("Level-loading")) return GameState.Pause;
+                if (cll.Contains("Allocating 16384 byte dynamic index buffer.") || cll.Contains("Allocating 65536 byte dynamic vertex buffer.")) return GameState.Resume;
+                if (cll.Contains("CutLog: [FINALBATTLE_YOUWIN.CutScene]:Triggered") || cll.Contains("CutLog: [FINALBATTLE_YOUWIN.CutScene]:SceneStarted")) return GameState.Split;
+
+                // Master_64: This is all inaccurate/inconsistent and is no longer needed
                 // if (cll.Contains("kwherocontroller ShowMenu")) return GameState.Pause;
                 // if (cll.Contains("GUIController::CloseMenu")) return GameState.Resume;
-                if (cll.Contains("Resetting GLevel: Level")) return GameState.Pause;
-                if (cll.Contains("Level-loading information not found")) return GameState.Pause;
-                if (cll.Contains("Log: LoadMap:")) return GameState.Pause;
-                if (cll.Contains("Log: (Karma): Terminating Karma for Level.")) return GameState.Pause;
-                if (cll.Contains("Log: (Karma): Level Karma Terminated.")) return GameState.Pause;
-                if (cll.Contains("Log: (Karma): Using SSE Optimizations")) return GameState.Pause;
-                if (cll.Contains("Allocating 16384 byte dynamic index buffer.")) return GameState.Resume;
-                if (cll.Contains("Allocating 27456 byte dynamic index buffer.")) return GameState.Resume;
-                if (cll.Contains("Allocating 65536 byte dynamic vertex buffer.")) return GameState.Resume;
-
-                // Master_64: This is all inaccurate
                 // if (cll.Contains("Log: Saving game...")) return GameState.Pause;
                 // if (cll.Contains("Saving into slot")) return GameState.Pause;
                 // if (cll.Contains("Log: Save=")) return GameState.Resume;
                 // if (cll.Contains("CutLog: [GAMEMENU.CutScene]:Triggered")) return GameState.Reset;
                 // if (cll.Contains("CutLog: [GAMEMENU.CutScene]:SceneStarted")) return GameState.Reset;
-
-                if (cll.Contains("CutLog: [FINALBATTLE_YOUWIN.CutScene]:Triggered")) return GameState.Split;
-                if (cll.Contains("CutLog: [FINALBATTLE_YOUWIN.CutScene]:SceneStarted")) return GameState.Split;
 
                 return GameState.None;
             }
