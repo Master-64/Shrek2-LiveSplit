@@ -57,7 +57,7 @@ namespace Shrek2_LiveSplit
             {
                 while ((Game.GameProcess = Shrek2Utils.GetGameProcess()) == null)
                 {
-                    Task.Delay(250);
+                    Thread.Sleep(250); // Using Thread.Sleep for the time being instead of Task.Delay since Task.Delay doesn't work, even when making this thread async
                     if (AutoSplitterCancellationToken.IsCancellationRequested)
                     {
                         return;
@@ -66,7 +66,7 @@ namespace Shrek2_LiveSplit
 
                 if (Game.GameProcess == null || Game.GameProcess.HasExited)
                 {
-                    Task.Delay(Shrek2Variables.SleepTime);
+                    Thread.Sleep(Shrek2Variables.SleepTime);
                     continue;
                 }
 
@@ -98,7 +98,7 @@ namespace Shrek2_LiveSplit
                 var logLines = Game.GetCurrentCutLogLines();
                 if(logLines == null || logLines.Count <= 0)
                 {
-                    Task.Delay(Shrek2Variables.SleepTime);
+                    Thread.Sleep(Shrek2Variables.SleepTime);
                     continue;
                 }
 
@@ -126,7 +126,7 @@ namespace Shrek2_LiveSplit
                     }
                 }
 
-                Task.Delay(Shrek2Variables.SleepTime);
+                Thread.Sleep(Shrek2Variables.SleepTime);
             }
         }
     }

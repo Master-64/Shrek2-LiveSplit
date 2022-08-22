@@ -1,4 +1,14 @@
 <updates>
+	<update version="1.0.5">
+        <files>
+            <file path="Components/Shrek2-LiveSplit.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>
+                Fixed an issue where the auto-splitter was never adding delay between checking the game, causing it to hog so much CPU that the game would lag
+            </change>
+        </changelog>
+    </update>
 	<update version="1.0.4">
         <files>
             <file path="Components/Shrek2-LiveSplit.dll" status="changed"/>
