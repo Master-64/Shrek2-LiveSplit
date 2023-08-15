@@ -1,4 +1,14 @@
 <updates>
+	<update version="1.0.6">
+        <files>
+            <file path="Components/Shrek2-LiveSplit.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>
+                Potentially improved performance for detecting whether the game is currently saving or loading
+            </change>
+        </changelog>
+    </update>
 	<update version="1.0.5">
         <files>
             <file path="Components/Shrek2-LiveSplit.dll" status="changed"/>

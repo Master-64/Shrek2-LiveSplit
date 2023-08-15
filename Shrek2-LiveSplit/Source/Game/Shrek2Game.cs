@@ -79,9 +79,9 @@ namespace Shrek2_LiveSplit.Game
                 if (string.IsNullOrWhiteSpace(cll)) return GameState.None;
 
                 // Master_64: Simplified these calls majorly to improve consistency with loadless
-                if (cll.Contains("Resetting GLevel:") || cll.Contains("LoadMap:") || cll.Contains("Level-loading")) return GameState.Pause;
-                if (cll.Contains("Allocating 16384") || cll.Contains("Allocating 65536")) return GameState.Resume;
-                if (cll.Contains("E_YOUWIN.CutScene]:Trig")) return GameState.Split; // This is how we figure out that the game has been finished
+                if (cll.Contains("Browse:")) return GameState.Pause; // A level has began loading. Pause the timer
+                if (cll.Contains("batches:")) return GameState.Resume; // A level has batched all static meshes, meaning the level has finished loading. Resume the timer
+                if (cll.Contains("WIN.CutScene]:Trig")) return GameState.Split; // This is how we figure out that the game has been finished
 
                 // Master_64: This is all inaccurate/inconsistent and is no longer needed
                 // if (cll.Contains("kwherocontroller ShowMenu")) return GameState.Pause;
