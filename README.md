@@ -1,5 +1,6 @@
 # Shrek 2 Auto-Splitter for LiveSplit on PC.
-This Repository is the most up-to-date LiveSplit Auto-Splitter for Shrek 2 (PC).
+This repository is not the most up-to-date LiveSplit Auto-Splitter for Shrek 2 (PC).
+The most up-to-date one can currently be found here: <a href="https://github.com/Master-64/Shrek2-LiveSplit-ASL">Link</a>
 
 # How-to install
 1. Download LiveSplit
